@@ -1,0 +1,17 @@
+From chat gpt
+
+A simple pathfinding algorithm for a 2D grid is the Breadth-First Search (BFS) algorithm. Here are the basic steps to implement it:
+
+1. Define the grid: Define a 2D grid where each cell represents a location in the environment. Each cell can be either blocked or unblocked, where blocked cells are obstacles that the pathfinding algorithm cannot pass through.
+
+2. Define the start and goal positions: Define the starting position and the goal position in the grid.
+
+3. Initialize the search: Initialize a queue to hold the frontier of the search. The frontier represents the set of cells that the algorithm is currently exploring. Add the starting position to the queue.
+
+4. Search the grid: While the queue is not empty, dequeue the first position from the queue and explore its neighbors. For each unblocked neighbor, add it to the queue and mark it as visited.
+
+5. Trace the path: Once the goal position is reached, trace the path from the goal position back to the starting position by following the parent pointers that were set during the search. This will give you the shortest path from the starting position to the goal position.
+
+6. Return the path: Return the path as a list of positions, or some other representation that can be used by your application.
+
+The BFS algorithm is simple and easy to implement, and it guarantees that the shortest path is found if there is one. However, it can be slow for large grids, and it does not take into account any obstacles or other factors that might affect the pathfinding. More advanced algorithms like Dijkstra's algorithm, A* algorithm, or the Theta* algorithm can be used to improve the performance or handle more complex environments.
