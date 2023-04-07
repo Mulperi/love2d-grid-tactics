@@ -29,9 +29,10 @@ function GridCreate()
                         x = x,
                         y = y,
                         visited = false,
+                        visible = false,
                         blocked = false,
                         stepsToTarget = nil,
-                        terrainValue = nil,
+                        mapValue = nil,
                         parent = nil,
                         neighbors = {
                             nil, -- North.
@@ -80,13 +81,11 @@ function GridCreate()
                 for y = 1, #self.cells do
                     local cell = self.cells[x][y]
 
-                    if debug and cell.blocked then
-                        love.graphics.setColor(1, 0, 0, 0.5)
-                        love.graphics.rectangle("line", x * self.tileSize, y * self.tileSize, self.tileSize,
-                            self.tileSize)
-                        love.graphics.setColor(1, 0, 0, 1)
-                        love.graphics.print(x .. "-" .. y, x * self.tileSize, y * self.tileSize)
-                    end
+                    -- love.graphics.setColor(1, 0, 0, 0.5)
+                    -- love.graphics.rectangle("line", x * self.tileSize, y * self.tileSize, self.tileSize,
+                    --     self.tileSize)
+                    -- love.graphics.setColor(1, 0, 0, 1)
+                    -- love.graphics.print(x .. "-" .. y, x * self.tileSize, y * self.tileSize)
 
 
 
@@ -97,41 +96,41 @@ function GridCreate()
                     -- end
 
                     -- Lines.
-                    -- love.graphics.setColor(0, 0, 0, 1)
-                    -- love.graphics.rectangle("line",
-                    --     x * self.tileSize - self.tileSize,
-                    --     y * self.tileSize - self.tileSize,
-                    --     self.tileSize, self.tileSize)
+                    love.graphics.setColor(0, 0, 0, 1)
+                    love.graphics.rectangle("line",
+                        x * self.tileSize - self.tileSize,
+                        y * self.tileSize - self.tileSize,
+                        self.tileSize, self.tileSize)
                 end
             end
 
-            for i = 1, #self.path do
-                -- Path line.
-                love.graphics.setColor(0, 1, 0, 1)
-                love.graphics.rectangle("line",
-                    self.path[i].x * self.tileSize - self.tileSize,
-                    self.path[i].y * self.tileSize - self.tileSize,
-                    self.tileSize,
-                    self.tileSize)
-                -- Path target.
-                if i == 1 then
-                    love.graphics.setColor(0, 1, 0, 0.5)
-                    love.graphics.rectangle("fill",
-                        self.path[i].x * self.tileSize - self.tileSize,
-                        self.path[i].y * self.tileSize - self.tileSize,
-                        self.tileSize,
-                        self.tileSize)
-                end
-                -- Path start.
-                if i == #self.path then
-                    love.graphics.setColor(1, 1, 1, 0.5)
-                    love.graphics.rectangle("fill",
-                        self.path[i].x * self.tileSize - self.tileSize,
-                        self.path[i].y * self.tileSize - self.tileSize,
-                        self.tileSize,
-                        self.tileSize)
-                end
-            end
+            -- for i = 1, #self.path do
+            --     -- Path line.
+            --     love.graphics.setColor(0, 1, 0, 1)
+            --     love.graphics.rectangle("line",
+            --         self.path[i].x * self.tileSize - self.tileSize,
+            --         self.path[i].y * self.tileSize - self.tileSize,
+            --         self.tileSize,
+            --         self.tileSize)
+            --     -- Path target.
+            --     if i == 1 then
+            --         love.graphics.setColor(0, 1, 0, 0.5)
+            --         love.graphics.rectangle("fill",
+            --             self.path[i].x * self.tileSize - self.tileSize,
+            --             self.path[i].y * self.tileSize - self.tileSize,
+            --             self.tileSize,
+            --             self.tileSize)
+            --     end
+            --     -- Path start.
+            --     if i == #self.path then
+            --         love.graphics.setColor(1, 1, 1, 0.5)
+            --         love.graphics.rectangle("fill",
+            --             self.path[i].x * self.tileSize - self.tileSize,
+            --             self.path[i].y * self.tileSize - self.tileSize,
+            --             self.tileSize,
+            --             self.tileSize)
+            --     end
+            -- end
         end
     }
 end

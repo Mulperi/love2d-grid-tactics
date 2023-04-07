@@ -3,24 +3,26 @@ function CursorCreate()
         pos = { x = 1, y = 1 },
         selected = nil,
         keypressed = function(self, key, gridLength)
-            if key == "up" then
-                if self.pos.y > 1 then
-                    self.pos.y = self.pos.y - 1
+            if not self.selected then
+                if key == "up" then
+                    if self.pos.y > 1 then
+                        self.pos.y = self.pos.y - 1
+                    end
                 end
-            end
-            if key == "right" then
-                if self.pos.x < gridLength then
-                    self.pos.x = self.pos.x + 1
+                if key == "right" then
+                    if self.pos.x < gridLength then
+                        self.pos.x = self.pos.x + 1
+                    end
                 end
-            end
-            if key == "down" then
-                if self.pos.y < gridLength then
-                    self.pos.y = self.pos.y + 1
+                if key == "down" then
+                    if self.pos.y < gridLength then
+                        self.pos.y = self.pos.y + 1
+                    end
                 end
-            end
-            if key == "left" then
-                if self.pos.x > 1 then
-                    self.pos.x = self.pos.x - 1
+                if key == "left" then
+                    if self.pos.x > 1 then
+                        self.pos.x = self.pos.x - 1
+                    end
                 end
             end
             if key == "return" then

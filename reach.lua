@@ -1,6 +1,4 @@
 function GetReach(grid, x, y, reach)
-    print("GetReach")
-    print("reach param: " .. reach)
     local queue = {}
     local reachCells = {}
 
@@ -13,7 +11,6 @@ function GetReach(grid, x, y, reach)
         local currentCell = queue[1]
         table.remove(queue, 1)
         if currentCell.x == x and currentCell.y == y then
-            print("alkupiste")
         else
             table.insert(reachCells, currentCell)
         end
